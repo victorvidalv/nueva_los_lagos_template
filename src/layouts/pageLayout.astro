@@ -1,0 +1,54 @@
+---
+import NavBar from '../components/site/navBar.astro';
+import Breadcrumbs from '../components/site/breadcrumbs.astro';
+import Sponsors from '../components/site/sponsors.astro';
+import Footer from '../components/site/footer.astro';
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+</head>
+<body>
+  <div class="font-body">
+    <NavBar />
+    <Breadcrumbs />
+
+    <main class="container mx-auto py-12 flex flex-col lg:flex-row">
+      <!-- Search and Results -->
+      <div class="w-full lg:w-3/4 pr-8">
+        <h2 class="text-2xl font-bold mb-6"></h2>
+        <h2 class="text-3xl font-bold mb-5 ">{title}</h2>
+        <slot/>
+       
+      </div>
+    
+      <!-- Artículos sugeridos -->
+      <div class="w-full lg:w-1/4 mt-12 lg:mt-0">
+        <h2 class="text-2xl font-bold mb-6">últimas publicaciones</h2>
+        <div class="space-y-6">
+          {Array(4).fill().map((_, idx) => (
+            <div class="bg-gray-100 ">
+              <div class="p-4">
+                <h3 class="text-xl font-bold mb-2">{idx === 0 ? "Lorem ipsum dolor" : "Sugerido"}</h3>
+                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                <a href="#" class={`font-bold py-2 px-4 ${idx === 0 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-500 hover:bg-blue-600'} text-white transition duration-300 ease-in-out transform hover:scale-105`}>{idx === 0 ? "Registrarse" : "Ver Más"}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+    
+
+
+    <Sponsors />
+    <Footer/
+    
+  </div>
+</body>
+</html>
