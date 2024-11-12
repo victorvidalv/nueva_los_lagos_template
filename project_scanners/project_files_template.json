@@ -1,0 +1,125 @@
+{
+  "details": [
+    {
+      "this_content": "This JSON contains the structure and content of a Node.js project, which needs to be analyzed,project_description: provides a general overview of the project,main_technologies: lists the primary technologies used,exclusion_note: offers information regarding any exclusions applied."
+    },
+    {
+      "project_description": "This is a project description"
+    },
+    {
+      "main_technologies": "node.js"
+    },
+    {
+      "exclusion_note": "The directories and files listed in excluded are existing files that have been excluded because their content is not relevant."
+    }
+  ],
+  "structure": [
+    {
+      "path": ".astro/",
+      "contents": [
+        {
+          "path": ".astro/types.d.ts"
+        }
+      ]
+    },
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": "README.md"
+    },
+    {
+      "path": "astro.config.mjs"
+    },
+    {
+      "path": "src/",
+      "contents": [
+        {
+          "path": "src/components/",
+          "contents": [
+            {
+              "path": "src/components/breadcrumbs.astro"
+            },
+            {
+              "path": "src/components/navBar.astro"
+            }
+          ]
+        },
+        {
+          "path": "src/env.d.ts"
+        },
+        {
+          "path": "src/layouts/",
+          "contents": [
+            {
+              "path": "src/layouts/generalLayout.astro"
+            }
+          ]
+        },
+        {
+          "path": "src/pages/",
+          "contents": [
+            {
+              "path": "src/pages/articulos.astro"
+            },
+            {
+              "path": "src/pages/index.astro"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": {
+    "directories": [
+      ".git/",
+      ".vscode/",
+      "node_modules/",
+      "project_scanners/",
+      "public/"
+    ],
+    "files": []
+  },
+  "filesContent": [
+    {
+      "path": ".astro/types.d.ts",
+      "content": "/// <reference types=\"astro/client\" /> "
+    },
+    {
+      "path": ".gitignore",
+      "content": "# build output dist/ # generated types .astro/ # dependencies node_modules/ # logs npm-debug.log* yarn-debug.log* yarn-error.log* pnpm-debug.log* # environment variables .env .env.production # macOS-specific files .DS_Store # jetbrains setting folder .idea/ "
+    },
+    {
+      "path": "README.md",
+      "content": "# Astro Starter Kit: Minimal ```sh npm create astro@latest -- --template minimal ``` [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal) [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json) > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun! ## 🚀 Project Structure Inside of your Astro project, you'll see the following folders and files: ```text / ├── public/ ├── src/ │ └── pages/ │ └── index.astro └── package.json ``` Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name. There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components. Any static assets, like images, can be placed in the `public/` directory. ## 🧞 Commands All commands are run from the root of the project, from a terminal: | Command | Action | | :------------------------ | :----------------------------------------------- | | `npm install` | Installs dependencies | | `npm run dev` | Starts local dev server at `localhost:4321` | | `npm run build` | Build your production site to `./dist/` | | `npm run preview` | Preview your build locally, before deploying | | `npm run astro ...` | Run CLI commands like `astro add`, `astro check` | | `npm run astro -- --help` | Get help using the Astro CLI | ## 👀 Want to learn more? Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat). "
+    },
+    {
+      "path": "astro.config.mjs",
+      "content": "import { defineConfig } from 'astro/config'; // https://astro.build/config export default defineConfig({}); "
+    },
+    {
+      "path": "src/components/breadcrumbs.astro",
+      "content": " <div class=\"bg-gray-100 py-4 border-b\"> <div class=\"container mx-auto\"> <nav class=\"flex\" aria-label=\"Breadcrumb\"> <ol class=\"inline-flex items-center space-x-1 md:space-x-3\"> <li class=\"inline-flex items-center\"> <a href=\"#\" class=\"inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white\"> Inicio </a> </li> <li> <div class=\"flex items-center\"> <svg class=\"w-6 h-6 text-gray-400\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"></path> </svg> <a href=\"#\" class=\"ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white\"> Artículos </a> </div> </li> </ol> </nav> </div> </div>"
+    },
+    {
+      "path": "src/components/navBar.astro",
+      "content": " <header class=\"bg-gray-800 text-white py-4 shadow-md\"> <div class=\"container mx-auto flex justify-between items-center\"> <a href=\"#\" class=\"font-bold text-lg\">NuevoLosLagos</a> <nav class=\"space-x-4 flex items-center\"> <a href=\"/nosostros\" class=\"hover:text-gray-400\">Nosotros</a> <a href=\"/evaluacion\" class=\"hover:text-gray-400\">Evaluación 4.0</a> <a href=\"/cursos\" class=\"hover:text-gray-400\">Cursos</a> <a href=\"/proveedores\" class=\"hover:text-gray-400\">Proveedores</a> <a href=\"/articulos\" class=\"hover:text-gray-400\">Artículos</a> <a href=\"/financiamiento\" class=\"hover:text-gray-400\">Financiamiento</a> <a href=\"/proyectos-destacados\" class=\"hover:text-gray-400\">Proyectos destacados</a> <!-- Botón Registrarse --> <a href=\"#\" class=\"bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-4\"> Registrarse </a> </nav> </div> </header>"
+    },
+    {
+      "path": "src/env.d.ts",
+      "content": "/// <reference path=\"../.astro/types.d.ts\" /> "
+    },
+    {
+      "path": "src/layouts/generalLayout.astro",
+      "content": "--- import NavBar from '../components/navBar.astro'; import Breadcrumbs from '../components/breadcrumbs.astro'; --- <!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>Página de Artículos - Diseño Moderno</title> <link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css\" rel=\"stylesheet\"> </head> <body> <div class=\"font-body\"> <NavBar /> <Breadcrumbs /> <slot/> <!-- Footer --> <footer class=\"bg-gray-800 text-white py-8\"> <div class=\"container mx-auto flex flex-col md:flex-row justify-between items-center\"> <p>&copy; NuevoLosLagos 2024. Todos los derechos reservados.</p> <nav class=\"space-x-4 mt-4 md:mt-0\"> <a href=\"#\" class=\"hover:text-gray-400\">Aviso legal</a> <a href=\"#\" class=\"hover:text-gray-400\">Política de privacidad</a> <a href=\"#\" class=\"hover:text-gray-400\">Contáctanos</a> </nav> </div> </footer> </div> </body> </html> "
+    },
+    {
+      "path": "src/pages/articulos.astro",
+      "content": "--- import generalLayout from '../layouts/generalLayout.astro'; --- <generalLayout> <main class=\"container mx-auto py-12 flex flex-col lg:flex-row\"> <!-- Search and Results --> <div class=\"w-full lg:w-3/4 pr-8\"> <h2 class=\"text-2xl font-bold mb-6\">Buscar Artículos</h2> <form class=\"flex items-center mb-8\"> <label for=\"simple-search\" class=\"sr-only\">Buscar</label> <div class=\"relative w-full\"> <div class=\"absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none\"> <svg aria-hidden=\"true\" class=\"w-5 h-5 text-gray-500 dark:text-gray-400\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z\" clip-rule=\"evenodd\"></path> </svg> </div> <input type=\"text\" id=\"simple-search\" class=\"bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500\" placeholder=\"Buscar artículos\" required> </div> <button type=\"submit\" class=\"p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\"> <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"></path> </svg> <span class=\"sr-only\">Buscar</span> </button> </form> <!-- Resultados de Búsqueda Simulados --> <div class=\"space-y-8\"> <!-- Resultado 1 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Título del Artículo de Interés</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Categoría</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Autor</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Fecha</span> </p> <p class=\"mt-2 text-gray-700\"> Resumen breve del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Resultado 2 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Otro Artículo Interesante</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Tecnología</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Juan Pérez</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Abril 2024</span> </p> <p class=\"mt-2 text-gray-700\"> Descripción concisa del contenido del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Resultado 3 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Últimas Tendencias en Diseño</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Diseño</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Ana Gómez</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Mayo 2024</span> </p> <p class=\"mt-2 text-gray-700\"> Breve introducción al artículo sobre tendencias actuales. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Puedes agregar más resultados aquí --> </div> </div> <!-- Suggested Articles --> <div class=\"w-full lg:w-1/4 mt-12 lg:mt-0\"> <h2 class=\"text-2xl font-bold mb-6\">Artículos Sugeridos</h2> <div class=\"space-y-6\"> <!-- Sugerencia 1 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2 text-yellow-700\">Comparte tu Opinión</h3> <p class=\"text-gray-700 mb-4\">¡Ayúdanos a mejorar nuestras recomendaciones para ti!</p> <a href=\"#\" class=\"bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg\"> Participar </a> </div> </div> <!-- Sugerencia 2 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Artículo Destacado</h3> <p class=\"text-gray-600 mb-4\">Descripción breve del artículo destacado.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> <!-- Sugerencia 3 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Tendencias Recientes</h3> <p class=\"text-gray-600 mb-4\">Descripción breve de las últimas tendencias.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> <!-- Sugerencia 4 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Entrevistas Exclusivas</h3> <p class=\"text-gray-600 mb-4\">Descripción breve de entrevistas exclusivas.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> </div> </div> </main> </generalLayout> "
+    },
+    {
+      "path": "src/pages/index.astro",
+      "content": "--- import generalLayout from '../layouts/generalLayout.astro'; --- <generalLayout> <h1>Astro</h1> </generalLayout>"
+    }
+  ]
+}
