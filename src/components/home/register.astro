@@ -1,0 +1,35 @@
+---
+// Importar el componente 
+import RegisterCard from './registerCard.astro';
+
+// Definir datos para las tarjetas de registro
+const registroCards = [
+  {
+    title: "Registro Empresas",
+    description: "¿Formas parte de la Industria 4.0 y necesitas formación o proveedores para tu negocio?",
+    link: "#",
+    linkLabel: "Registrarse",
+  },
+  {
+    title: "Registro Proveedores",
+    description: "¿Quieres unirte a nuestra plataforma como proveedor de productos o servicios para la Industria 4.0?",
+    link: "#",
+    linkLabel: "Registrarse",
+  },
+  {
+    title: "Registro Usuarios",
+    description: "¿Te interesa conocer tendencias, innovaciones y mejores prácticas en la Industria 4.0, sin ser empresa o proveedor?",
+    link: "#",
+    linkLabel: "Registrarse",
+  },
+];
+---
+
+<section >
+  <div class="container  pb-10 pt-5 mx-auto sm:px-12 md:px-16 lg:py-20 sm:py-16">
+    <div class="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {registroCards.map((card) => <RegisterCard {...card} />)}
+    </div>
+     
+  </div>
+</section>

@@ -1,47 +1,44 @@
 ---
-// Importar los datos del `pathname` desde Astro
+// Importar el pathname desde Astro y dividir en segmentos.
 const pathname = Astro.url.pathname;
-
-// Función para dividir el `pathname` en segmentos
 const pathSegments = pathname.split('/').filter(Boolean);
 
+// Generar ruta acumulativa para cada segmento del breadcrumb
+const createPath = (index) => '/' + pathSegments.slice(0, index + 1).join('/');
 ---
 
 <div class="bg-gray-200 py-4 border-b-4 border-gray-200">
-    <div class="container mx-auto">
-        <nav class="flex" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <!-- Primer segmento: enlace a la página de Inicio -->
-                <li class="inline-flex items-center">
-                    <a href="/" class="inline-flex items-center text-sm font-bold transition-colors duration-300">
-                        <!-- Icono de Inicio (opcional) -->
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 2L2 7h3v7h4v-5h2v5h4V7h3L10 2z" />
-                        </svg>
-                        Inicio
-                    </a>
-                </li>
+  <div class="container mx-auto">
+    <nav class="flex" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        
+        <!-- Primer segmento: enlace a la página de Inicio -->
+        <li class="inline-flex items-center">
+          <a href="/" class="inline-flex items-center text-sm font-bold transition-colors duration-300">
+            <!-- Icono de Inicio -->
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2L2 7h3v7h4v-5h2v5h4V7h3L10 2z" />
+            </svg>
+            Inicio
+          </a>
+        </li>
 
-                <!-- Iterar sobre los segmentos del path y generar enlaces -->
-                {pathSegments.map((segment, index) => (
-                    <li key={index}>
-                        <div class="flex items-center">
-                            <!-- Separador de segmento -->
-                            <svg class="w-5 h-5 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                            
-                            <!-- Enlace al segmento -->
-                            <span
-                               
-                                class="text-sm font-bold transition-colors duration-300"
-                            >
-                                {segment.charAt(0).toUpperCase() + segment.slice(1)}
-                            </span>
-                        </div>
-                    </li>
-                ))}
-            </ol>
-        </nav>
-    </div>
+        <!-- Iterar sobre los segmentos y generar enlaces acumulativos -->
+        {pathSegments.map((segment, index) => (
+          <li key={index} class="flex items-center">
+            
+            <!-- Separador de segmento -->
+            <svg class="w-5 h-5 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            
+            <!-- Enlace al segmento con ruta acumulativa -->
+            <a href={createPath(index)} class="text-sm font-bold transition-colors duration-300 hover:text-gray-500">
+              {segment.charAt(0).toUpperCase() + segment.slice(1)}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </div>
 </div>

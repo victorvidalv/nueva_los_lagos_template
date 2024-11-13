@@ -1,12 +1,22 @@
-<footer class="bg-[#262626] text-white py-8">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <p>&copy; NuevoLosLagos 2024. Todos los derechos reservados.</p>
-      <nav class="space-x-4 mt-4 md:mt-0">
-        <a href="/sitio/aviso-legal" class="hover:text-gray-400">Aviso legal</a>
-        <a href="/sitio/politica-de-privacidad" class="hover:text-gray-400">Política de privacidad</a>
+---
+// Definir constantes para los enlaces de pie de página.
+const footerLinks = [
+  { href: '/sitio/aviso-legal', label: 'Aviso legal' },
+  { href: '/sitio/politica-de-privacidad', label: 'Política de privacidad' }
+];
+---
+    <!-- Footer -->
 
-      </nav>
-    </div> 
+<footer class="bg-[#262626] text-white py-8 border-t-4 border-yellow-500">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+    <!-- Derechos reservados -->
+    <p>&copy; NuevoLosLagos 2024. Todos los derechos reservados.</p>
 
-   
-  </footer>
+    <!-- Enlaces de pie de página -->
+    <nav class="space-x-4 mt-4 md:mt-0  ">
+      {footerLinks.map((link) => (
+        <a href={link.href} key={link.href} class="hover:text-gray-400">{link.label}</a>
+      ))}
+    </nav>
+  </div>
+</footer>

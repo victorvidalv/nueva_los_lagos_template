@@ -1,88 +1,74 @@
+---
+// Definir constantes para los enlaces de navegación.
+const menuItems = [
+  {
+    label: 'Proyecto',
+    links: [
+      { href: '/proyecto/equipo', label: 'Equipo' },
+      { href: '/proyecto/plataforma', label: 'Plataforma' }
+    ]
+  },
+  {
+    label: 'Evaluaciones',
+    links: [
+      { href: '/evaluaciones/madurez', label: 'Madurez Tecnológica' },
+      { href: '/evaluaciones/proveedores', label: 'Proveedores' },
+      { href: '/evaluaciones/startup', label: 'Startup' }
+    ]
+  },
+  {
+    label: 'Investigación',
+    links: [
+      { href: '/investigacion/podcast', label: 'Podcast i4.0' },
+      { href: '/investigacion/diagnostico', label: 'Diagnóstico Regional i4.0' }
+    ]
+  },
+  {
+    label: 'Buscadores',
+    links: [
+      { href: '/buscadores/proveedores', label: 'Proveedores' },
+      { href: '/buscadores/cursos', label: 'Cursos' },
+      { href: '/buscadores/financiamiento', label: 'Financiamiento' },
+      { href: '/buscadores/articulos', label: 'Artículos de Interés' },
+      { href: '/buscadores/proyectos-destacados', label: 'Proyectos Destacados' }
+    ]
+  }
+];
+---
+
 <header class="bg-gray-800 text-white shadow-lg border-b-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a href="/" class="font-black text-2xl tracking-wider bg-yellow-500 p-5 text-gray-800 hover:text-gray-900 transition-colors duration-300">
-            NuevoLosLagos
-        </a>
-        <nav class="space-x-6 flex items-center relative">
-            <!-- Proyecto -->
-            <div class="relative group">
-                <button 
-                    class="hover:text-yellow-400 transition-colors duration-300 flex items-center focus:outline-none"
-                    aria-haspopup="true" 
-                    aria-expanded="false">
-                    Proyecto
-                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                    </svg>
-                </button>
-                <div class="absolute left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10">
-                    <a href="/proyecto/equipo" class="block px-4 py-2 hover:bg-gray-700">Equipo</a>
-                    <a href="/proyecto/plataforma" class="block px-4 py-2 hover:bg-gray-700">Plataforma</a>
-                 
-                </div>
-            </div>
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="font-black text-2xl tracking-wider bg-yellow-500 p-5 text-gray-800 ">
+      NuevoLosLagos
+    </a>
 
-            <!-- Evaluaciones -->
-            <div class="relative group">
-                <button 
-                    class="hover:text-yellow-400 transition-colors duration-300 flex items-center focus:outline-none"
-                    aria-haspopup="true" 
-                    aria-expanded="false">
-                    Evaluaciones
-                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                    </svg>
-                </button>
-                <div class="absolute left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10">
-                    <a href="/evaluaciones/madurez" class="block px-4 py-2 hover:bg-gray-700">Madurez Tecnológica</a>
-                    <a href="/evaluaciones/proveedores" class="block px-4 py-2 hover:bg-gray-700">Proveedores</a>
-                    <a href="/evaluaciones/startup" class="block px-4 py-2 hover:bg-gray-700">Startup</a>
-                </div>
-            </div>
+    <!-- Navegación -->
+    <nav class="space-x-6 flex items-center relative">
+      {menuItems.map((item) => (
+        <div class="relative group " key={item.label}>
+          <button
+            class="hover:text-yellow-400  transition-colors duration-300 flex items-center focus:outline-none "
+            aria-haspopup="true"
+            aria-expanded="false">
+            {item.label}
+            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+            </svg>
+          </button>
+          <div class="absolute  left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10 ">
+            {item.links.map((link) => (
+              <a href={link.href} key={link.href} class="block px-4 py-2 hover:bg-gray-700">{link.label}</a>
+            ))}
+          </div>
+        </div>
+      ))}
 
-            <!-- Investigación -->
-            <div class="relative group">
-                <button 
-                    class="hover:text-yellow-400 transition-colors duration-300 flex items-center focus:outline-none"
-                    aria-haspopup="true" 
-                    aria-expanded="false">
-                    Investigación
-                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                    </svg>
-                </button>
-                <div class="absolute left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10">
-                    <a href="/investigacion/podcast" class="block px-4 py-2 hover:bg-gray-700">Podcast i4.0</a>
-                    <a href="/investigacion/diagnostico" class="block px-4 py-2 hover:bg-gray-700">Diagnóstico Regional i4.0</a>
-                </div>
-            </div>
-
-            <!-- Buscadores -->
-            <div class="relative group">
-                <button 
-                    class="hover:text-yellow-400 transition-colors duration-300 flex items-center focus:outline-none"
-                    aria-haspopup="true" 
-                    aria-expanded="false">
-                    Buscadores
-                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                    </svg>
-                </button>
-                <div class="absolute left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10">
-                    <a href="/buscadores/proveedores" class="block px-4 py-2 hover:bg-gray-700">Proveedores</a>
-                    <a href="/buscadores/cursos" class="block px-4 py-2 hover:bg-gray-700">Cursos</a>
-                    <a href="/buscadores/financiamiento" class="block px-4 py-2 hover:bg-gray-700">Financiamiento</a>
-                    <a href="/buscadores/articulos" class="block px-4 py-2 hover:bg-gray-700">Artículos de Interés</a>
-                    <a href="/buscadores/proyectos-destacados" class="block px-4 py-2 hover:bg-gray-700">Proyectos Destacados</a>
-                </div>
-            </div>
-
-            <!-- Botón Registrarse -->
-            <a href="/registrarse"
-               class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-bold py-2 px-4 ml-4 border border-yellow-700 rounded shadow-md transform hover:scale-105 transition-transform duration-200">
-                Registrarse
-            </a>
-        </nav>
-    </div>
+      <!-- Botón Registrarse -->
+      <a href="/registrarse"
+         class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-bold py-2 px-4 ml-4 border border-yellow-700 rounded shadow-md transform hover:scale-105 transition-transform duration-200">
+        Registrarse
+      </a>
+    </nav>
+  </div>
 </header>

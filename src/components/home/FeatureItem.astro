@@ -1,0 +1,11 @@
+---
+const { iconSrc, iconAlt, title, description } = Astro.props;
+---
+<div class="relative border-l-2 border-gray-200 p-2">
+    <div class="flex items-center">
+        <p class="text-lg leading-6 font-bold text-gray-700">{title}</p>
+    </div>
+    <div class="mt-2 text-lg text-gray-500">
+        {description}
+    </div>
+</div>

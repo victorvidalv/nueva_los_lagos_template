@@ -1,0 +1,15 @@
+---
+const { title, description, link, linkLabel } = Astro.props;
+---
+
+<div class="relative mt-5 bg-gray-100 p-6 ">
+  <a href="#" class="block mb-3 ">
+    <h2 class="text-2xl font-bold leading-5 text-black ">
+      {title}
+    </h2>
+  </a>
+  <p class="mb-4 text-gray-700 dark:text-gray-300">{description}</p>
+  <a href={link} class="font-medium  text-purple-600 ">
+    {linkLabel}
+  </a>
+</div>
