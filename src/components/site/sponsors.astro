@@ -1,17 +1,19 @@
 ---
-import { Image } from 'astro:assets';
+  // Eliminamos la importación de Image
+  // import { Image } from 'astro:assets';
 
-// Lista de patrocinadores con nombres descriptivos
-import logoSantoTomas from './public/logo_santotomas.webp';
-import logoAsimet from './public/logo_asimet.webp';
-import logoCorfo from './public/logo_corfo.webp';
+  // Ya no necesitamos importar imágenes locales desde public/
+  // import logoSantoTomas from './public/logo_santotomas.webp';
+  // import logoAsimet from './public/logo_asimet.webp';
+  // import logoCorfo from './public/logo_corfo.webp';
 
-const sponsorLogos = [
-  { src: logoSantoTomas, alt: "Santo Tomás", isExternal: false },
-  { src: logoAsimet, alt: "Asimet", isExternal: false },
-  { src: logoCorfo, alt: "Corfo", isExternal: false },
-  { src: "https://dummyimage.com/200x200/eeeeee/000000", alt: "Grupo Centinela", isExternal: true }, // Imagen externa
-];
+  // Definimos las rutas absolutas para las imágenes locales
+  const sponsorLogos = [
+    { src: "/logo_santotomas.webp", alt: "Santo Tomás", isExternal: false },
+    { src: "/logo_asimet.webp", alt: "Asimet", isExternal: false },
+    { src: "/logo_corfo.webp", alt: "Corfo", isExternal: false },
+    { src: "https://dummyimage.com/200x200/eeeeee/000000", alt: "Grupo Centinela", isExternal: true }, // Imagen externa
+  ];
 ---
 <div class="w-full bg-gray-100 py-10">
   <div class="max-w-full px-6">
@@ -27,23 +29,13 @@ const sponsorLogos = [
       <!-- Sección de logos de patrocinadores -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-12 mt-16">
         {sponsorLogos.map((logo) => (
-          <div class="flex items-center justify-center">
-            {logo.isExternal ? (
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                class="w-full max-w-xs h-auto object-contain"
-                loading="lazy"
-              />
-            ) : (
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                class="w-full max-w-xs h-auto object-contain"
-                loading="lazy"
-                format="webp" 
-              />
-            )}
+          <div class="flex items-center justify-center" key={logo.alt}>
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              class="w-full max-w-xs h-auto object-contain"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
