@@ -1,10 +1,12 @@
 ---
-import NavBar from '../components/site/navBar.astro';
-import Breadcrumbs from '../components/site/breadcrumbs.astro';
-import Sponsors from '../components/site/sponsors.astro';
-import Footer from '../components/site/footer.astro';
-const { title } = Astro.props;
+// Importar componentes reutilizables con nombres más claros
+import NavigationBar from '../components/site/navBar.astro';
+import SiteBreadcrumbs from '../components/site/breadcrumbs.astro';
+import SponsorSection from '../components/site/sponsors.astro';
+import SiteFooter from '../components/site/footer.astro';
 
+// Obtener las propiedades del componente
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,42 +17,54 @@ const { title } = Astro.props;
   <title>{title}</title>
 </head>
 <body>
+  <!-- Establecer fuente base para el sitio -->
   <div class="font-body">
-    <NavBar />
-    <Breadcrumbs />
- 
+    <!-- Barra de navegación -->
+    <NavigationBar />
+    
+    <!-- Migas de pan para navegación -->
+    <SiteBreadcrumbs />
 
+    <!-- Contenido principal -->
     <main class="container mx-auto py-12 flex flex-col lg:flex-row">
-      <!-- Search and Results -->
+      <!-- Sección de búsqueda y resultados -->
       <div class="w-full lg:w-3/4 pr-8">
-        <h2 class="text-2xl font-bold mb-6"></h2>
-        <h2 class="text-3xl font-bold mb-5 ">{title}</h2>
-        <slot/>
-       
+        <h2 class="text-3xl font-bold mb-5">{title}</h2>
+        <!-- Espacio para contenido dinámico -->
+        <slot />
       </div>
     
-      <!-- Artículos sugeridos -->
-      <div class="w-full lg:w-1/4 mt-12 lg:mt-0">
-        <h2 class="text-2xl font-bold mb-6">últimas publicaciones</h2>
+      <!-- Sección de artículos sugeridos -->
+      <aside class="w-full lg:w-1/4 mt-12 lg:mt-0">
+        <h2 class="text-2xl font-bold mb-6">Últimas publicaciones</h2>
         <div class="space-y-6">
-          {Array(4).fill().map((_, idx) => (
-            <div class="bg-gray-100 ">
-              <div class="p-4">
-                <h3 class="text-xl font-bold mb-2">{idx === 0 ? "Lorem ipsum dolor" : "Sugerido"}</h3>
-                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-                <a href="#" class={`font-bold py-2 px-4 ${idx === 0 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-500 hover:bg-blue-600'} text-white transition duration-300 ease-in-out transform hover:scale-105`}>{idx === 0 ? "Registrarse" : "Ver Más"}</a>
-              </div>
-            </div>
+          {Array(4).fill().map((_, index) => (
+            <article class="bg-gray-100 p-4">
+              <h3 class="text-xl font-bold mb-2">
+                {index === 0 ? "Lorem ipsum dolor" : "Sugerido"}
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <a 
+                href="#" 
+                class={`font-bold py-2 px-4 ${
+                  index === 0 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-500 hover:bg-blue-600'
+                } text-white transition duration-300 ease-in-out transform hover:scale-105`}
+              >
+                {index === 0 ? "Registrarse" : "Ver Más"}
+              </a>
+            </article>
           ))}
         </div>
-      </div>
+      </aside>
     </main>
-    
 
-
-    <Sponsors />
-    <Footer/>
+    <!-- Sección de patrocinadores -->
+    <SponsorSection />
     
+    <!-- Pie de página -->
+    <SiteFooter />
   </div>
 </body>
 </html>

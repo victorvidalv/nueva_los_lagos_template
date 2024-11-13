@@ -1,8 +1,10 @@
 ---
-import NavBar from '../components/site/navBar.astro';
-import Breadcrumbs from '../components/site/breadcrumbs.astro';
-import Sponsors from '../components/site/sponsors.astro';
-import Footer from '../components/site/footer.astro';
+// Importar componentes reutilizables con nombres más claros
+import NavigationBar from '../components/site/navBar.astro';
+import SiteBreadcrumbs from '../components/site/breadcrumbs.astro';
+import SponsorSection from '../components/site/sponsors.astro';
+import SiteFooter from '../components/site/footer.astro';
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -10,18 +12,25 @@ import Footer from '../components/site/footer.astro';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nuevo Los Lagos</title>
+  <title>{title}</title>
 </head>
 <body>
+  <!-- Establecer fuente base para el sitio -->
   <div class="font-body">
-    <NavBar />
-    <Breadcrumbs />
+    <!-- Barra de navegación -->
+    <NavigationBar />
+    
+    <!-- Migas de pan para navegación -->
+    <SiteBreadcrumbs />
 
+    <!-- Contenido dinámico del sitio -->
     <slot/>
 
-    <Sponsors />
-    <Footer/>
+    <!-- Sección de patrocinadores -->
+    <SponsorSection />
     
+    <!-- Pie de página del sitio -->
+    <SiteFooter />
   </div>
 </body>
 </html>
