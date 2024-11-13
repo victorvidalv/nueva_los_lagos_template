@@ -18,6 +18,9 @@
       "path": ".astro/",
       "contents": [
         {
+          "path": ".astro/icon.d.ts"
+        },
+        {
           "path": ".astro/types.d.ts"
         }
       ]
@@ -38,10 +41,63 @@
           "path": "src/components/",
           "contents": [
             {
-              "path": "src/components/breadcrumbs.astro"
+              "path": "src/components/home/",
+              "contents": [
+                {
+                  "path": "src/components/home/FeatureItem.astro"
+                },
+                {
+                  "path": "src/components/home/ctaProveedores.astro"
+                },
+                {
+                  "path": "src/components/home/hero.astro"
+                },
+                {
+                  "path": "src/components/home/projectCharacteristics.astro"
+                },
+                {
+                  "path": "src/components/home/register.astro"
+                },
+                {
+                  "path": "src/components/home/registerCard.astro"
+                }
+              ]
             },
             {
-              "path": "src/components/navBar.astro"
+              "path": "src/components/project/",
+              "contents": [
+                {
+                  "path": "src/components/project/team.astro"
+                }
+              ]
+            },
+            {
+              "path": "src/components/search/",
+              "contents": [
+                {
+                  "path": "src/components/search/search.astro"
+                },
+                {
+                  "path": "src/components/search/searchResult.astro"
+                }
+              ]
+            },
+            {
+              "path": "src/components/site/",
+              "contents": [
+                {
+                  "path": "src/components/site/breadcrumbs.astro"
+                },
+                {
+                  "path": "src/components/site/footer.astro"
+                },
+                {
+                  "path": "src/components/site/navBar.astro"
+                },
+                {
+                  "path": "src/components/site/sponsors.astro"
+                }
+              ]
             }
           ]
         },
@@ -49,10 +105,20 @@
           "path": "src/env.d.ts"
         },
         {
+          "path": "src/icons/",
+          "contents": []
+        },
+        {
           "path": "src/layouts/",
           "contents": [
             {
-              "path": "src/layouts/generalLayout.astro"
+              "path": "src/layouts/homeLayout.astro"
+            },
+            {
+              "path": "src/layouts/pageLayout.astro"
+            },
+            {
+              "path": "src/layouts/searchLayout.astro"
             }
           ]
         },
@@ -60,14 +126,87 @@
           "path": "src/pages/",
           "contents": [
             {
-              "path": "src/pages/articulos.astro"
+              "path": "src/pages/404.astro"
+            },
+            {
+              "path": "src/pages/buscadores/",
+              "contents": [
+                {
+                  "path": "src/pages/buscadores/articulos.astro"
+                },
+                {
+                  "path": "src/pages/buscadores/cursos.astro"
+                },
+                {
+                  "path": "src/pages/buscadores/financiamiento.astro"
+                },
+                {
+                  "path": "src/pages/buscadores/proveedores.astro"
+                },
+                {
+                  "path": "src/pages/buscadores/proyectos-destacados.astro"
+                }
+              ]
+            },
+            {
+              "path": "src/pages/evaluaciones/",
+              "contents": [
+                {
+                  "path": "src/pages/evaluaciones/madurez.astro"
+                },
+                {
+                  "path": "src/pages/evaluaciones/proveedores.astro"
+                },
+                {
+                  "path": "src/pages/evaluaciones/startup.astro"
+                }
+              ]
             },
             {
               "path": "src/pages/index.astro"
+            },
+            {
+              "path": "src/pages/investigacion/",
+              "contents": [
+                {
+                  "path": "src/pages/investigacion/diagnostico.astro"
+                },
+                {
+                  "path": "src/pages/investigacion/podcast.astro"
+                }
+              ]
+            },
+            {
+              "path": "src/pages/proyecto/",
+              "contents": [
+                {
+                  "path": "src/pages/proyecto/equipo.astro"
+                },
+                {
+                  "path": "src/pages/proyecto/plataforma.astro"
+                }
+              ]
+            },
+            {
+              "path": "src/pages/registrarse.astro"
+            },
+            {
+              "path": "src/pages/sitio/",
+              "contents": [
+                {
+                  "path": "src/pages/sitio/aviso-legal.astro"
+                },
+                {
+                  "path": "src/pages/sitio/politica-de-privacidad.astro"
+                }
+              ]
             }
           ]
         }
       ]
+    },
+    {
+      "path": "tailwind.config.mjs"
     }
   ],
   "excluded": {
@@ -82,12 +221,16 @@
   },
   "filesContent": [
     {
+      "path": ".astro/icon.d.ts",
+      "content": "// Automatically generated by astro-icon // 25bf8e1a2393f1108d37029b3df5593236c755742ec93465bbafa9b290bddcf6 declare module 'virtual:astro-icon' { export type Icon = ; }"
+    },
+    {
       "path": ".astro/types.d.ts",
       "content": "/// <reference types=\"astro/client\" /> "
     },
     {
       "path": ".gitignore",
-      "content": "# build output dist/ # generated types .astro/ # dependencies node_modules/ # logs npm-debug.log* yarn-debug.log* yarn-error.log* pnpm-debug.log* # environment variables .env .env.production # macOS-specific files .DS_Store # jetbrains setting folder .idea/ "
+      "content": "# build output dist/ # generated types .astro/ # dependencies node_modules/ project_scanners/ # logs npm-debug.log* yarn-debug.log* yarn-error.log* pnpm-debug.log* # environment variables .env .env.production # macOS-specific files .DS_Store # jetbrains setting folder .idea/ "
     },
     {
       "path": "README.md",
@@ -95,31 +238,147 @@
     },
     {
       "path": "astro.config.mjs",
-      "content": "import { defineConfig } from 'astro/config'; // https://astro.build/config export default defineConfig({}); "
+      "content": "import { defineConfig } from 'astro/config'; import tailwind from '@astrojs/tailwind'; import icon from 'astro-icon'; // https://astro.build/config export default defineConfig({ integrations: [tailwind(), icon()] });"
     },
     {
-      "path": "src/components/breadcrumbs.astro",
-      "content": " <div class=\"bg-gray-100 py-4 border-b\"> <div class=\"container mx-auto\"> <nav class=\"flex\" aria-label=\"Breadcrumb\"> <ol class=\"inline-flex items-center space-x-1 md:space-x-3\"> <li class=\"inline-flex items-center\"> <a href=\"#\" class=\"inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white\"> Inicio </a> </li> <li> <div class=\"flex items-center\"> <svg class=\"w-6 h-6 text-gray-400\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"></path> </svg> <a href=\"#\" class=\"ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white\"> Artículos </a> </div> </li> </ol> </nav> </div> </div>"
+      "path": "src/components/home/FeatureItem.astro",
+      "content": "--- const { iconSrc, iconAlt, title, description } = Astro.props; --- <div class=\"relative border-l-2 border-gray-200 p-2\"> <div class=\"flex items-center\"> <p class=\"text-lg leading-6 font-bold text-gray-700\">{title}</p> </div> <div class=\"mt-2 text-lg text-gray-500\"> {description} </div> </div> "
     },
     {
-      "path": "src/components/navBar.astro",
-      "content": " <header class=\"bg-gray-800 text-white py-4 shadow-md\"> <div class=\"container mx-auto flex justify-between items-center\"> <a href=\"#\" class=\"font-bold text-lg\">NuevoLosLagos</a> <nav class=\"space-x-4 flex items-center\"> <a href=\"/nosostros\" class=\"hover:text-gray-400\">Nosotros</a> <a href=\"/evaluacion\" class=\"hover:text-gray-400\">Evaluación 4.0</a> <a href=\"/cursos\" class=\"hover:text-gray-400\">Cursos</a> <a href=\"/proveedores\" class=\"hover:text-gray-400\">Proveedores</a> <a href=\"/articulos\" class=\"hover:text-gray-400\">Artículos</a> <a href=\"/financiamiento\" class=\"hover:text-gray-400\">Financiamiento</a> <a href=\"/proyectos-destacados\" class=\"hover:text-gray-400\">Proyectos destacados</a> <!-- Botón Registrarse --> <a href=\"#\" class=\"bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-4\"> Registrarse </a> </nav> </div> </header>"
+      "path": "src/components/home/ctaProveedores.astro",
+      "content": "<section class=\"bg-yellow-500 py-10\"> <div class=\"max-w-6xl mx-auto px-4 sm:px-6 lg:px-8\"> <div class=\"flex flex-col gap-12 lg:flex-row items-center\"> <div class=\"lg:w-1/2\"> <h1 class=\"text-4xl font-bold leading-tight mb-4\">Escucha nuestros Podcast</h1> <p class=\"text-xl mb-8\"> Podcast creados con IA, acerca de la industria 4.0 y sus tecnologías. </p> <a href=\"#\" class=\"bg-gray-800 text-white py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-200\">Ir a Escuchar </a> </div> <div class=\"lg:w-1/4 lg:flex lg:justify-end hidden lg:block\"> <img src=\"/podcast.webp\" alt=\"podcast imagen\" class=\"w-full h-full object-cover\" /> </div> </div> </div> </section> "
+    },
+    {
+      "path": "src/components/home/hero.astro",
+      "content": " <section class=\"bg-white dark:bg-gray-900\"> <div class=\"grid container px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12\"> <div class=\"mr-auto place-self-center lg:col-span-7\"> <h1 class=\"max-w-2xl mb-5 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white\"> Evaluación Nivel de Madurez Tecnológica </h1> <p class=\"max-w-2xl mb-6 mt-4 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400\"> Evalua el nivel de madurez tecnológica de tu empresa y conoce que acciones debes realizar para alcanzar la madurez tecnológica </p> <a href=\"#\" class=\"inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 border border-yellow-500 border-3 hover:border-yellow-600 hover:bg-yellow-500\"> Evaluar Ahora <svg class=\"w-5 h-5 ml-2 -mr-1\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z\" clip-rule=\"evenodd\"></path> </svg> </a> </div> <div class=\"hidden lg:mt-0 lg:col-span-5 lg:flex\"> <img src=\"/hero.webp\" alt=\"hero-image\"> </div> </div> </section>"
+    },
+    {
+      "path": "src/components/home/projectCharacteristics.astro",
+      "content": "--- // Importar el componente `FeatureItem` import FeatureItem from './FeatureItem.astro'; // Definir datos para las características const features = [ { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Buscador Proveedores Icon\", title: \"Buscador Proveedores\", description: \"Herramienta para conectar empresas y proveedores de la industria en la región de Los Lagos.\" }, { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Buscador de Cursos Icon\", title: \"Buscador de Cursos I 4.0\", description: \"Plataforma para busqueda de cursos especializados en Industria 4.0 para el desarrollo de profesionales.\" }, { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Artículos de Interés Icon\", title: \"Artículos de interés\", description: \"Compendio de artículos relevantes sobre Industria 4.0, enfocados en ofrecer información útil a las empresas.\" }, { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Proyectos Destacados Icon\", title: \"Proyectos destacados\", description: \"Selección de proyectos sobresalientes en Industria 4.0, con información relevante para el sector empresarial.\" }, { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Proyectos Destacados Icon\", title: \"Investigaciones sobre la Industria Regional\", description: \"Acceso a investigaciones y estudios que analizan el impacto y desarrollo de la industria en la región de Los Lagos.\" }, { iconSrc: \"https://www.svgrepo.com/show/503138/webpack.svg\", iconAlt: \"Proyectos Destacados Icon\", title: \"Contenido Exclusivo en Industria 4.0\", description: \"Recursos especializados y contenido exclusivo sobre tendencias, innovaciones y mejores prácticas en Industria 4.0.\" }, ]; --- <section> <div class=\"py-12 bg-white\"> <div class=\"container mx-auto px-4 sm:px-6 lg:px-8\"> <!-- Sección de título y descripción --> <div class=\"lg:text-center\"> <h2 class=\"font-heading mb-4 bg-yellow-500 inline-block px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest text-black uppercase title-font\"> ¿ Qué es Nuevo los lagos ? </h2> <p class=\"font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl\"> Plataforma para fortalecer la industria regional </p> <p class=\"mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto\"> Iniciativa web desarrollada por Corfo Los Lagos, Universidad Santo Tomás, Asimet y Grupo Centinela. </p> </div> <!-- Grid de características --> <div class=\"mt-10 \"> <dl class=\"space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10\"> {features.map((feature, index) => ( <FeatureItem key={index} iconSrc={feature.iconSrc} iconAlt={feature.iconAlt} title={feature.title} description={feature.description} /> ))} </dl> </div> </div> </div> </section> "
+    },
+    {
+      "path": "src/components/home/register.astro",
+      "content": "--- // Importar el componente import RegisterCard from './registerCard.astro'; // Definir datos para las tarjetas de registro const registroCards = [ { title: \"Registro Empresas\", description: \"¿Formas parte de la Industria 4.0 y necesitas formación o proveedores para tu negocio?\", link: \"#\", linkLabel: \"Registrarse\", }, { title: \"Registro Proveedores\", description: \"¿Quieres unirte a nuestra plataforma como proveedor de productos o servicios para la Industria 4.0?\", link: \"#\", linkLabel: \"Registrarse\", }, { title: \"Registro Usuarios\", description: \"¿Te interesa conocer tendencias, innovaciones y mejores prácticas en la Industria 4.0, sin ser empresa o proveedor?\", link: \"#\", linkLabel: \"Registrarse\", }, ]; --- <section > <div class=\"container pb-10 pt-5 mx-auto sm:px-12 md:px-16 lg:py-20 sm:py-16\"> <div class=\"grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3\"> {registroCards.map((card) => <RegisterCard {...card} />)} </div> </div> </section> "
+    },
+    {
+      "path": "src/components/home/registerCard.astro",
+      "content": "--- const { title, description, link, linkLabel } = Astro.props; --- <div class=\"relative mt-5 bg-gray-100 p-6 \"> <a href=\"#\" class=\"block mb-3 \"> <h2 class=\"text-2xl font-bold leading-5 text-black \"> {title} </h2> </a> <p class=\"mb-4 text-gray-700 dark:text-gray-300\">{description}</p> <a href={link} class=\"font-medium text-purple-600 \"> {linkLabel} </a> </div> "
+    },
+    {
+      "path": "src/components/project/team.astro",
+      "content": "--- const teamMembers = [ { name: \"Nombre 1 Apellido\", role: \"Cargo 1\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 2 Apellido\", role: \"Cargo 2\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 3 Apellido\", role: \"Cargo 3\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 4 Apellido\", role: \"Cargo 4\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 5 Apellido\", role: \"Cargo 5\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 6 Apellido\", role: \"Cargo 6\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 7 Apellido\", role: \"Cargo 7\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, { name: \"Nombre 8 Apellido\", role: \"Cargo 8\", image: \"https://dummyimage.com/200x200/eeeeee/000000\" }, ]; --- <section id=\"our-team\" class=\"\"> <div class=\"container mx-auto px-4\"> <div class=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8\"> {teamMembers.map((member) => ( <div class=\"bg-white p-6 my-6 text-center\"> <img src={member.image} alt={member.name} class=\"w-full rounded-full mb-4\" /> <h3 class=\"text-xl font-semibold mb-2\">{member.name}</h3> <p class=\"text-gray-700\">{member.role}</p> </div> ))} </div> </div> </section> "
+    },
+    {
+      "path": "src/components/search/search.astro",
+      "content": "--- import SearchResult from \"./searchResult.astro\" const { title } = Astro.props; --- <main class=\"container mx-auto py-12 flex flex-col lg:flex-row\"> <!-- Search and Results --> <div class=\"w-full lg:w-3/4 pr-8\"> <h2 class=\"text-2xl font-bold mb-6\">{title}</h2> <!-- Formulario de búsqueda --> <form class=\"flex items-center mb-8\"> <label for=\"simple-search\" class=\"sr-only\">Buscar</label> <div class=\"relative w-full\"> <div class=\"absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none\"> <svg aria-hidden=\"true\" class=\"w-5 h-5 text-gray-500 dark:text-gray-400\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z\" clip-rule=\"evenodd\"></path> </svg> </div> <input type=\"text\" id=\"simple-search\" class=\"bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500\" placeholder=\"Buscar ...\" required> </div> <button type=\"submit\" class=\"p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\"> <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"></path> </svg> <span class=\"sr-only\">Buscar</span> </button> </form> <!-- Resultados de búsqueda simulados --> <div class=\"space-y-8\"> {Array(5).fill().map(() => <SearchResult />)} </div> <!-- Paginación --> <ol class=\"flex text-xs font-medium space-x-1 mt-5\"> <li><a href=\"/?page=1\" class=\"inline-flex items-center justify-center w-8 h-8 border border-gray-100 rounded\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-3 h-3\" viewBox=\"0 0 20 20\" fill=\"currentColor\"><path fill-rule=\"evenodd\" d=\"M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z\" clip-rule=\"evenodd\" /></svg></a></li> {[1, 2, 3, 4].map(page => ( <li class={`block w-8 h-8 text-center ${page === 2 ? 'text-white bg-blue-600 border-blue-600' : 'border border-gray-100'} rounded leading-8`}> <a href={`/?page=${page}`} class={page === 2 ? '' : 'block'}>{page}</a> </li> ))} <li><a href=\"/?page=3\" class=\"inline-flex items-center justify-center w-8 h-8 border border-gray-100 rounded\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-3 h-3\" viewBox=\"0 0 20 20\" fill=\"currentColor\"><path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" /></svg></a></li> </ol> </div> <!-- Artículos sugeridos --> <div class=\"w-full lg:w-1/4 mt-12 lg:mt-0\"> <h2 class=\"text-2xl font-bold mb-6\">Recomendados</h2> <div class=\"space-y-6\"> {Array(4).fill().map((_, idx) => ( <div class=\"bg-gray-100 \"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">{idx === 0 ? \"Lorem ipsum dolor\" : \"Sugerido\"}</h3> <p class=\"text-gray-600 mb-4\">Lorem ipsum dolor sit amet, consectetur adipiscing</p> <a href=\"#\" class={`font-bold py-2 px-4 ${idx === 0 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-500 hover:bg-blue-600'} text-white transition duration-300 ease-in-out transform hover:scale-105`}>{idx === 0 ? \"Registrarse\" : \"Ver Más\"}</a> </div> </div> ))} </div> </div> </main> "
+    },
+    {
+      "path": "src/components/search/searchResult.astro",
+      "content": " <!-- Resultado 1 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl font-semibold text-blue-600 hover:underline\"> Lorem ipsum dolor sit amet, consectetur</a> <p class=\"text-gray-600\"> <span class=\"border border-blue-100 text-blue-600 px-2 py-1 text-xs\"> Lorem ipsum</span> <span class=\"border border-blue-100 text-blue-600 px-2 py-1 text-xs\"> Lorem ipsum</span> <span class=\"border border-blue-100 text-blue-600 px-2 py-1 text-xs\"> Lorem ipsum</span> </p> <p class=\"mt-2 text-gray-700\"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p> </div> "
+    },
+    {
+      "path": "src/components/site/breadcrumbs.astro",
+      "content": "--- // Importar el pathname desde Astro y dividir en segmentos. const pathname = Astro.url.pathname; const pathSegments = pathname.split('/').filter(Boolean); // Generar ruta acumulativa para cada segmento del breadcrumb const createPath = (index) => '/' + pathSegments.slice(0, index + 1).join('/'); --- <div class=\"bg-gray-200 py-4 border-b-4 border-gray-200\"> <div class=\"container mx-auto\"> <nav class=\"flex\" aria-label=\"Breadcrumb\"> <ol class=\"inline-flex items-center space-x-1 md:space-x-3\"> <!-- Primer segmento: enlace a la página de Inicio --> <li class=\"inline-flex items-center\"> <a href=\"/\" class=\"inline-flex items-center text-sm font-bold transition-colors duration-300\"> <!-- Icono de Inicio --> <svg class=\"w-5 h-5 mr-2\" fill=\"currentColor\" viewBox=\"0 0 20 20\"> <path d=\"M10 2L2 7h3v7h4v-5h2v5h4V7h3L10 2z\" /> </svg> Inicio </a> </li> <!-- Iterar sobre los segmentos y generar enlaces acumulativos --> {pathSegments.map((segment, index) => ( <li key={index} class=\"flex items-center\"> <!-- Separador de segmento --> <svg class=\"w-5 h-5 text-gray-500 mx-2\" fill=\"currentColor\" viewBox=\"0 0 20 20\"> <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"></path> </svg> <!-- Enlace al segmento con ruta acumulativa --> <a href={createPath(index)} class=\"text-sm font-bold transition-colors duration-300 hover:text-gray-500\"> {segment.charAt(0).toUpperCase() + segment.slice(1)} </a> </li> ))} </ol> </nav> </div> </div> "
+    },
+    {
+      "path": "src/components/site/footer.astro",
+      "content": "--- // Definir constantes para los enlaces de pie de página. const footerLinks = [ { href: '/sitio/aviso-legal', label: 'Aviso legal' }, { href: '/sitio/politica-de-privacidad', label: 'Política de privacidad' } ]; --- <!-- Footer --> <footer class=\"bg-[#262626] text-white py-8 border-t-4 border-yellow-500\"> <div class=\"container mx-auto flex flex-col md:flex-row justify-between items-center\"> <!-- Derechos reservados --> <p>&copy; NuevoLosLagos 2024. Todos los derechos reservados.</p> <!-- Enlaces de pie de página --> <nav class=\"space-x-4 mt-4 md:mt-0 \"> {footerLinks.map((link) => ( <a href={link.href} key={link.href} class=\"hover:text-gray-400\">{link.label}</a> ))} </nav> </div> </footer> "
+    },
+    {
+      "path": "src/components/site/navBar.astro",
+      "content": "--- // Definir constantes para los enlaces de navegación. const menuItems = [ { label: 'Proyecto', links: [ { href: '/proyecto/equipo', label: 'Equipo' }, { href: '/proyecto/plataforma', label: 'Plataforma' } ] }, { label: 'Evaluaciones', links: [ { href: '/evaluaciones/madurez', label: 'Madurez Tecnológica' }, { href: '/evaluaciones/proveedores', label: 'Proveedores' }, { href: '/evaluaciones/startup', label: 'Startup' } ] }, { label: 'Investigación', links: [ { href: '/investigacion/podcast', label: 'Podcast i4.0' }, { href: '/investigacion/diagnostico', label: 'Diagnóstico Regional i4.0' } ] }, { label: 'Buscadores', links: [ { href: '/buscadores/proveedores', label: 'Proveedores' }, { href: '/buscadores/cursos', label: 'Cursos' }, { href: '/buscadores/financiamiento', label: 'Financiamiento' }, { href: '/buscadores/articulos', label: 'Artículos de Interés' }, { href: '/buscadores/proyectos-destacados', label: 'Proyectos Destacados' } ] } ]; --- <header class=\"bg-gray-800 text-white shadow-lg border-b-4\"> <div class=\"container mx-auto flex justify-between items-center\"> <!-- Logo --> <a href=\"/\" class=\"font-black text-2xl tracking-wider bg-yellow-500 p-5 text-gray-800 \"> NuevoLosLagos </a> <!-- Navegación --> <nav class=\"space-x-6 flex items-center relative\"> {menuItems.map((item) => ( <div class=\"relative group \" key={item.label}> <button class=\"hover:text-yellow-400 transition-colors duration-300 flex items-center focus:outline-none \" aria-haspopup=\"true\" aria-expanded=\"false\"> {item.label} <svg class=\"w-4 h-4 ml-1\" fill=\"currentColor\" viewBox=\"0 0 20 20\"> <path d=\"M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z\" /> </svg> </button> <div class=\"absolute left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10 \"> {item.links.map((link) => ( <a href={link.href} key={link.href} class=\"block px-4 py-2 hover:bg-gray-700\">{link.label}</a> ))} </div> </div> ))} <!-- Botón Registrarse --> <a href=\"/registrarse\" class=\"bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-bold py-2 px-4 ml-4 border border-yellow-700 rounded shadow-md transform hover:scale-105 transition-transform duration-200\"> Registrarse </a> </nav> </div> </header> "
+    },
+    {
+      "path": "src/components/site/sponsors.astro",
+      "content": "--- const sponsors = [ { src: \"/logo_santotomas.webp\", alt: \"Santo tomas\" }, { src: \"/logo_asimet.webp\", alt: \"Asimet\" }, { src: \"/logo_corfo.webp\", alt: \"Corfo\" }, { src: \"https://dummyimage.com/200x200/eeeeee/000000\", alt: \"Grupo centinela\" }, // Agrega más patrocinadores aquí según sea necesario ]; --- <div class=\"w-full bg-gray-100 py-10\"> <div class=\"max-w-full px-6\"> <div class=\"flex flex-col items-center\"> <div class=\"text-center\"> <h2 class=\"text-3xl font-extrabold text-gray-800\">Organización</h2> <p class=\"mt-6 text-xl text-gray-600 max-w-3xl mx-auto\"> Nuevo Los Lagos, es una colaboración entre la Universidad Santo Tomás, Asimet y Grupo Centinela, con financiamiento de Corfo Los Lagos. </p> </div> <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-12 mt-16\"> {sponsors.map((sponsor) => ( <div class=\"flex items-center justify-center\"> <img src={sponsor.src} alt={sponsor.alt} class=\"w-full max-w-xs h-auto object-contain\" loading=\"lazy\" /> </div> ))} </div> </div> </div> </div> "
     },
     {
       "path": "src/env.d.ts",
       "content": "/// <reference path=\"../.astro/types.d.ts\" /> "
     },
     {
-      "path": "src/layouts/generalLayout.astro",
-      "content": "--- import NavBar from '../components/navBar.astro'; import Breadcrumbs from '../components/breadcrumbs.astro'; --- <!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>Página de Artículos - Diseño Moderno</title> <link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css\" rel=\"stylesheet\"> </head> <body> <div class=\"font-body\"> <NavBar /> <Breadcrumbs /> <slot/> <!-- Footer --> <footer class=\"bg-gray-800 text-white py-8\"> <div class=\"container mx-auto flex flex-col md:flex-row justify-between items-center\"> <p>&copy; NuevoLosLagos 2024. Todos los derechos reservados.</p> <nav class=\"space-x-4 mt-4 md:mt-0\"> <a href=\"#\" class=\"hover:text-gray-400\">Aviso legal</a> <a href=\"#\" class=\"hover:text-gray-400\">Política de privacidad</a> <a href=\"#\" class=\"hover:text-gray-400\">Contáctanos</a> </nav> </div> </footer> </div> </body> </html> "
+      "path": "src/layouts/homeLayout.astro",
+      "content": "--- import NavBar from '../components/site/navBar.astro'; import Breadcrumbs from '../components/site/breadcrumbs.astro'; import Sponsors from '../components/site/sponsors.astro'; import Footer from '../components/site/footer.astro'; --- <!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>Nuevo Los Lagos</title> </head> <body> <div class=\"font-body\"> <NavBar /> <Breadcrumbs /> <slot/> <Sponsors /> <Footer/ </div> </body> </html> "
     },
     {
-      "path": "src/pages/articulos.astro",
-      "content": "--- import generalLayout from '../layouts/generalLayout.astro'; --- <generalLayout> <main class=\"container mx-auto py-12 flex flex-col lg:flex-row\"> <!-- Search and Results --> <div class=\"w-full lg:w-3/4 pr-8\"> <h2 class=\"text-2xl font-bold mb-6\">Buscar Artículos</h2> <form class=\"flex items-center mb-8\"> <label for=\"simple-search\" class=\"sr-only\">Buscar</label> <div class=\"relative w-full\"> <div class=\"absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none\"> <svg aria-hidden=\"true\" class=\"w-5 h-5 text-gray-500 dark:text-gray-400\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"> <path fill-rule=\"evenodd\" d=\"M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z\" clip-rule=\"evenodd\"></path> </svg> </div> <input type=\"text\" id=\"simple-search\" class=\"bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-text-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500\" placeholder=\"Buscar artículos\" required> </div> <button type=\"submit\" class=\"p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\"> <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"></path> </svg> <span class=\"sr-only\">Buscar</span> </button> </form> <!-- Resultados de Búsqueda Simulados --> <div class=\"space-y-8\"> <!-- Resultado 1 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Título del Artículo de Interés</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Categoría</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Autor</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Fecha</span> </p> <p class=\"mt-2 text-gray-700\"> Resumen breve del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Resultado 2 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Otro Artículo Interesante</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Tecnología</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Juan Pérez</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Abril 2024</span> </p> <p class=\"mt-2 text-gray-700\"> Descripción concisa del contenido del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Resultado 3 --> <div class=\"group\"> <a href=\"#\" class=\"text-xl text-blue-600 hover:underline\">Últimas Tendencias en Diseño</a> <p class=\"text-gray-600\"> <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Diseño</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Ana Gómez</span> | <span class=\"bg-blue-100 text-blue-600 font-semibold px-2 py-1\">Mayo 2024</span> </p> <p class=\"mt-2 text-gray-700\"> Breve introducción al artículo sobre tendencias actuales. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> </div> <!-- Puedes agregar más resultados aquí --> </div> </div> <!-- Suggested Articles --> <div class=\"w-full lg:w-1/4 mt-12 lg:mt-0\"> <h2 class=\"text-2xl font-bold mb-6\">Artículos Sugeridos</h2> <div class=\"space-y-6\"> <!-- Sugerencia 1 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2 text-yellow-700\">Comparte tu Opinión</h3> <p class=\"text-gray-700 mb-4\">¡Ayúdanos a mejorar nuestras recomendaciones para ti!</p> <a href=\"#\" class=\"bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg\"> Participar </a> </div> </div> <!-- Sugerencia 2 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Artículo Destacado</h3> <p class=\"text-gray-600 mb-4\">Descripción breve del artículo destacado.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> <!-- Sugerencia 3 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Tendencias Recientes</h3> <p class=\"text-gray-600 mb-4\">Descripción breve de las últimas tendencias.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> <!-- Sugerencia 4 --> <div class=\"bg-gray-100 shadow-lg\"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">Entrevistas Exclusivas</h3> <p class=\"text-gray-600 mb-4\">Descripción breve de entrevistas exclusivas.</p> <a href=\"#\" class=\"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4\">Leer Más</a> </div> </div> </div> </div> </main> </generalLayout> "
+      "path": "src/layouts/pageLayout.astro",
+      "content": "--- import NavBar from '../components/site/navBar.astro'; import Breadcrumbs from '../components/site/breadcrumbs.astro'; import Sponsors from '../components/site/sponsors.astro'; import Footer from '../components/site/footer.astro'; const { title } = Astro.props; --- <!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>{title}</title> </head> <body> <div class=\"font-body\"> <NavBar /> <Breadcrumbs /> <main class=\"container mx-auto py-12 flex flex-col lg:flex-row\"> <!-- Search and Results --> <div class=\"w-full lg:w-3/4 pr-8\"> <h2 class=\"text-2xl font-bold mb-6\"></h2> <h2 class=\"text-3xl font-bold mb-5 \">{title}</h2> <slot/> </div> <!-- Artículos sugeridos --> <div class=\"w-full lg:w-1/4 mt-12 lg:mt-0\"> <h2 class=\"text-2xl font-bold mb-6\">últimas publicaciones</h2> <div class=\"space-y-6\"> {Array(4).fill().map((_, idx) => ( <div class=\"bg-gray-100 \"> <div class=\"p-4\"> <h3 class=\"text-xl font-bold mb-2\">{idx === 0 ? \"Lorem ipsum dolor\" : \"Sugerido\"}</h3> <p class=\"text-gray-600 mb-4\">Lorem ipsum dolor sit amet, consectetur adipiscing</p> <a href=\"#\" class={`font-bold py-2 px-4 ${idx === 0 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-500 hover:bg-blue-600'} text-white transition duration-300 ease-in-out transform hover:scale-105`}>{idx === 0 ? \"Registrarse\" : \"Ver Más\"}</a> </div> </div> ))} </div> </div> </main> <Sponsors /> <Footer/ </div> </body> </html> "
+    },
+    {
+      "path": "src/layouts/searchLayout.astro",
+      "content": "--- import NavBar from '../components/site/navBar.astro'; import Breadcrumbs from '../components/site/breadcrumbs.astro'; import Sponsors from '../components/site/sponsors.astro'; import Footer from '../components/site/footer.astro'; --- <!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>Nuevo Los Lagos</title> </head> <body> <div class=\"font-body\"> <NavBar /> <Breadcrumbs /> <slot/> <Sponsors /> <Footer/ </div> </body> </html> "
+    },
+    {
+      "path": "src/pages/404.astro",
+      "content": "--- import PageLayout from '../layouts/pageLayout.astro'; --- <PageLayout title=\"404 Página no encontrada\"> Página no encontrada </PageLayout> "
+    },
+    {
+      "path": "src/pages/buscadores/articulos.astro",
+      "content": "--- import SearchLayout from '../../layouts/searchLayout.astro'; import Search from '../../components/search/search.astro'; --- <SearchLayout tittle=\"Articulos\"> <Search title=\"Artículos\"/> </SearchLayout> "
+    },
+    {
+      "path": "src/pages/buscadores/cursos.astro",
+      "content": "--- import SearchLayout from '../../layouts/searchLayout.astro'; import Search from '../../components/search/search.astro'; --- <SearchLayout tittle=\"Cursos\"> <Search title=\"Cursos\"/> </SearchLayout> "
+    },
+    {
+      "path": "src/pages/buscadores/financiamiento.astro",
+      "content": "--- import SearchLayout from '../../layouts/searchLayout.astro'; import Search from '../../components/search/search.astro'; --- <SearchLayout tittle=\"Financiamiento\"> <Search title=\"Financiamiento\"/> </SearchLayout> "
+    },
+    {
+      "path": "src/pages/buscadores/proveedores.astro",
+      "content": "--- import SearchLayout from '../../layouts/searchLayout.astro'; import Search from '../../components/search/search.astro'; --- <SearchLayout tittle=\"Proveedores\"> <Search title=\"Proveedores\"/> </SearchLayout> "
+    },
+    {
+      "path": "src/pages/buscadores/proyectos-destacados.astro",
+      "content": "--- import SearchLayout from '../../layouts/searchLayout.astro'; import Search from '../../components/search/search.astro'; --- <SearchLayout tittle=\"Proyectos destacados\"> <Search title=\"Proyectos destacados\"/> </SearchLayout> "
+    },
+    {
+      "path": "src/pages/evaluaciones/madurez.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Madurez tecnológica\"> Madurez tecnológica </PageLayout> "
+    },
+    {
+      "path": "src/pages/evaluaciones/proveedores.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Proveedores\"> Proveedores </PageLayout> "
+    },
+    {
+      "path": "src/pages/evaluaciones/startup.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Startup\"> Startup </PageLayout> "
     },
     {
       "path": "src/pages/index.astro",
-      "content": "--- import generalLayout from '../layouts/generalLayout.astro'; --- <generalLayout> <h1>Astro</h1> </generalLayout>"
+      "content": "--- //layout import HomeLayout from '../layouts/homeLayout.astro'; //components import Hero from '../components/home/hero.astro'; import Register from '../components/home/register.astro'; import CtaProveedores from '../components/home/ctaProveedores.astro'; import ProjectCharacteristics from '../components/home/projectCharacteristics.astro'; --- <HomeLayout title=\"Nuevo Los Lagos\"> <Hero/> <Register/> <CtaProveedores/> <ProjectCharacteristics/> </HomeLayout> "
+    },
+    {
+      "path": "src/pages/investigacion/diagnostico.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Diagnóstico\"> Diagnóstico </PageLayout> "
+    },
+    {
+      "path": "src/pages/investigacion/podcast.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Podcasts\"> Podcasts </PageLayout> "
+    },
+    {
+      "path": "src/pages/proyecto/equipo.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; import Team from '../../components/project/team.astro'; --- <PageLayout title=\"Nuestro Equipo\"> <Team title=\"Equipo Nuestro\"/> </PageLayout> "
+    },
+    {
+      "path": "src/pages/proyecto/plataforma.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Plataforma\"> <!-- Sección: Qué es Nuevo Los Lagos --> <section class=\"my-8 text-justify bg-gray-100 p-3\"> <p class=\"mt-4 text-lg text-gray-700\">El proyecto \"Nuevo Los Lagos\", en desarrollo, es una colaboración entre la Universidad Santo Tomás, Asimet y Grupo Centinela, con financiamiento de Corfo Los Lagos. Esta plataforma web busca fortalecer la infraestructura industrial y profesional de la región.</p> <ul class=\"mt-4 space-y-2 list-disc pl-6 text-gray-700\"> <li><strong>Educación y Actualización Profesional:</strong> Ofrecerá cursos especializados en manufactura avanzada.</li> <li><strong>Buscador de Proveedores Basado en IA:</strong> Un sistema inteligente para conectar empresas con proveedores.</li> </ul> </section> <!-- Sección: Objetivos --> <section class=\"my-8 text-justify p-3 \"> <h2 class=\"text-2xl font-semibold text-gray-800\">Objetivos</h2> <h3 class=\"mt-4 text-xl font-medium text-gray-800\">General</h3> <p class=\"mt-2 text-lg text-gray-700\">Apoyar el desarrollo y fortalecimiento del sector manufactura avanzada en la Región de Los Lagos.</p> <h3 class=\"mt-4 text-xl font-medium text-gray-800\">Específicos</h3> <ul class=\"mt-2 space-y-2 list-disc pl-6 text-gray-700\"> <li>Desarrollar un bien público para mejorar la competitividad del sector.</li> <li>Fortalecer la educación en manufactura avanzada.</li> <li>Mejorar la coordinación público-privada.</li> </ul> </section> <!-- Sección: Organización --> <section class=\"my-8 text-justify bg-gray-100 p-3\"> <h2 class=\"text-3xl font-semibold text-gray-800\">Organización</h2> <p class=\"mt-4 text-lg text-gray-700\">Los principales actores en el proyecto son:</p> <ul class=\"mt-2 space-y-2 list-disc pl-6 text-gray-700\"> <li><strong>ASIMET:</strong> Mandante del proyecto.</li> <li><strong>Universidad Santo Tomás:</strong> Beneficiario del proyecto.</li> <li><strong>Grupo Centinela:</strong> Co-ejecutor con experiencia en el sector.</li> </ul> </section> <img src=\"/image1.svg\" alt=\"Descripción de la imagen\" class=\"w-2/3\" /> <!-- Sección: Desafíos y Brechas --> <section class=\"my-8 text-justify bg-gray-100 p-3\"> <h2 class=\"text-3xl font-semibold text-gray-800\">Desafíos y Brechas</h2> <h3 class=\"mt-4 text-2xl font-medium text-gray-800\">Desafíos</h3> <ul class=\"mt-2 space-y-2 list-disc pl-6 text-gray-700\"> <li>Asegurar el crecimiento de la manufactura avanzada como % del PIB regional.</li> <li>Evitar el decrecimiento de manufactura en la región.</li> </ul> <h3 class=\"mt-4 text-2xl font-medium text-gray-800\">Brechas</h3> <ul class=\"mt-2 space-y-2 list-disc pl-6 text-gray-700\"> <li>Limitadas competencias para adoptar manufactura avanzada.</li> <li>Escaso conocimiento sobre manufactura avanzada en la región.</li> <li>Poca información sobre el sector en Los Lagos.</li> </ul> </section> <img src=\"/componentesnllgs.svg\" alt=\"Descripción de la imagen\" class=\"w-2/3\" /> <!-- Sección: Componentes --> <section class=\"my-8 text-justify bg-gray-100 p-3\"> <h2 class=\"text-3xl font-semibold text-gray-800\">Componentes</h2> <ul class=\"mt-2 space-y-2 list-disc pl-6 text-gray-700\"> <li>Situación Actual Ecosistema MA e i4.0.</li> <li>Modelo de Madurez MA e i4.0.</li> <li>Modelo de Caracterización de Proveedores MA e i4.0.</li> <li>Cursos de Formación MA e i4.0.</li> <li>Vinculación Empresa-Proveedor basada en IA.</li> </ul> </section> </PageLayout> "
+    },
+    {
+      "path": "src/pages/registrarse.astro",
+      "content": "<!DOCTYPE html> <html lang=\"es\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <title>Formulario de Registro</title> <link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\" rel=\"stylesheet\"> <script src=\"https://cdn.tailwindcss.com\"></script> </head> <body class=\"bg-gray-100\"> <div class=\"container mx-auto px-4 py-8\"> <div class=\"bg-white p-8 rounded-lg shadow-md\"> <h2 class=\"text-2xl font-bold mb-4\">Crear cuenta</h2> <form id=\"registrationForm\"> <!-- Paso 1: Información personal --> <div id=\"step1\" class=\"step-section mb-8\"> <h3 class=\"text-lg font-medium mb-4\">Información personal</h3> <div class=\"mb-4\"> <label for=\"fullName\" class=\"block text-gray-700 font-medium mb-2\">Nombre completo</label> <input type=\"text\" id=\"fullName\" name=\"fullName\" class=\"input-field\" required> </div> <div class=\"mb-4\"> <label for=\"email\" class=\"block text-gray-700 font-medium mb-2\">Correo electrónico</label> <input type=\"email\" id=\"email\" name=\"email\" class=\"input-field\" required> </div> </div> <!-- Paso 2: Detalles de la cuenta --> <div id=\"step2\" class=\"step-section hidden mb-8\"> <h3 class=\"text-lg font-medium mb-4\">Detalles de la cuenta</h3> <div class=\"mb-4\"> <label for=\"username\" class=\"block text-gray-700 font-medium mb-2\">Nombre de usuario</label> <input type=\"text\" id=\"username\" name=\"username\" class=\"input-field\" required> </div> <div class=\"mb-4\"> <label for=\"password\" class=\"block text-gray-700 font-medium mb-2\">Contraseña</label> <input type=\"password\" id=\"password\" name=\"password\" class=\"input-field\" required> </div> </div> <!-- Barra de progreso --> <div class=\"mb-4\"> <div class=\"w-full bg-gray-200 h-2 rounded-full\"> <div id=\"progressBar\" class=\"bg-blue-500 h-full rounded-full\" style=\"width: 0%\"></div> </div> </div> <!-- Botón de acción --> <button type=\"button\" onclick=\"nextStep()\" class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500\">Siguiente</button> </form> </div> </div> <script> let currentStep = 1; // Cambia al siguiente paso y actualiza la interfaz function nextStep() { if (currentStep <= 2) { toggleStepDisplay(currentStep, currentStep + 1); updateProgressBar(currentStep * 50); currentStep++; } else { alert('Formulario enviado'); updateProgressBar(100); } } // Muestra u oculta los pasos según el número actual function toggleStepDisplay(hideStep, showStep) { document.getElementById(`step${hideStep}`).classList.add('hidden'); document.getElementById(`step${showStep}`).classList.remove('hidden'); } // Actualiza el ancho de la barra de progreso function updateProgressBar(percentage) { document.getElementById('progressBar').style.width = `${percentage}%`; } </script> <style> /* Estilos de los campos de entrada para simplificar */ .input-field { border: 1px solid #cbd5e0; padding: 0.5rem 1rem; border-radius: 0.5rem; width: 100%; outline: none; transition: border-color 0.3s; } .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); } .step-section { display: none; } .step-section:first-of-type { display: block; } </style> </body> </html> "
+    },
+    {
+      "path": "src/pages/sitio/aviso-legal.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Aviso legal\"> Aviso legal </PageLayout> "
+    },
+    {
+      "path": "src/pages/sitio/politica-de-privacidad.astro",
+      "content": "--- import PageLayout from '../../layouts/pageLayout.astro'; --- <PageLayout title=\"Política de privacidad\"> Política de privacidad </PageLayout> "
+    },
+    {
+      "path": "tailwind.config.mjs",
+      "content": "/** @type {import('tailwindcss').Config} */ export default { content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'], theme: { extend: {}, }, plugins: [], } "
     }
   ]
 }

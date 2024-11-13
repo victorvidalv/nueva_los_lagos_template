@@ -4,6 +4,7 @@ dist/
 .astro/
 # dependencies
 node_modules/
+project_scanners/
 
 # logs
 npm-debug.log*
