@@ -1,13 +1,4 @@
 ---
-  // Eliminamos la importación de Image
-  // import { Image } from 'astro:assets';
-
-  // Ya no necesitamos importar imágenes locales desde public/
-  // import logoSantoTomas from './public/logo_santotomas.webp';
-  // import logoAsimet from './public/logo_asimet.webp';
-  // import logoCorfo from './public/logo_corfo.webp';
-
-  // Definimos las rutas absolutas para las imágenes locales
   const sponsorLogos = [
     { src: "/logo_santotomas.webp", alt: "Santo Tomás", isExternal: false },
     { src: "/logo_asimet.webp", alt: "Asimet", isExternal: false },
@@ -27,9 +18,17 @@
       </div>
 
       <!-- Sección de logos de patrocinadores -->
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold text-gray-800">Organización</h2>
+        <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+          Nuevo Los Lagos es una colaboración entre la Universidad Santo Tomás, Asimet y Grupo Centinela, con financiamiento de Corfo Los Lagos.
+        </p>
+      </div>
+
+      <!-- Sección de logos de patrocinadores -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-12 mt-16">
         {sponsorLogos.map((logo) => (
-          <div class="flex items-center justify-center" key={logo.alt}>
+          <div class="flex items-center justify-center">
             <img
               src={logo.src}
               alt={logo.alt}
@@ -37,6 +36,9 @@
               loading="lazy"
             />
           </div>
+        ))}
+      </div>
+    </div>
         ))}
       </div>
     </div>

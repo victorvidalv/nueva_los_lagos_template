@@ -25,13 +25,11 @@ const createPath = (index) => '/' + pathSegments.slice(0, index + 1).join('/');
 
         <!-- Iterar sobre los segmentos y generar enlaces acumulativos -->
         {pathSegments.map((segment, index) => (
-          <li key={index} class="flex items-center">
-            
+          <li class="flex items-center">
             <!-- Separador de segmento -->
             <svg class="w-5 h-5 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
             </svg>
-            
             <!-- Enlace al segmento con ruta acumulativa -->
             <a href={createPath(index)} class="text-sm font-bold transition-colors duration-300 hover:text-gray-500">
               {segment.charAt(0).toUpperCase() + segment.slice(1)}
