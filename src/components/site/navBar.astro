@@ -46,7 +46,7 @@ const menuItems = [
     <!-- Navegación -->
     <nav class="space-x-6 flex items-center relative">
       {menuItems.map((item) => (
-        <div class="relative group " key={item.label}>
+        <div class="relative group ">
           <button
             class="hover:text-yellow-400  transition-colors duration-300 flex items-center focus:outline-none "
             aria-haspopup="true"
@@ -58,7 +58,7 @@ const menuItems = [
           </button>
           <div class="absolute  left-0 top-full w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-300 z-10 ">
             {item.links.map((link) => (
-              <a href={link.href} key={link.href} class="block px-4 py-2 hover:bg-gray-700">{link.label}</a>
+              <a href={link.href} class="block px-4 py-2 hover:bg-gray-700">{link.label}</a>
             ))}
           </div>
         </div>
